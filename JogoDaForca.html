@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jogo da Forca</title>
+	<script type="text/javascript">
+		var erro=0;
+		var palavras = ["banana", "ponei", "pessoa", "amendoim", "cozinha", "raiva", "ponte", "sapo", "cavalo", "uva" ];
+		var acerto = 0;
+		var i;
+		var letra;
+		var tamanho;
+		var perdeu = 0;
+		var cada;
+		var ponto
+		function inicio()
+		{
+			i = Math.floor(Math.random() * 10);
+			palavra = palavras[i];
+			tamanho = palavra.length;
+			if (tamanho >= 1) 
+			{
+				document.getElementById('letra0').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra0').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 2) 
+			{
+				document.getElementById('letra1').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra1').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 3) 
+			{
+				document.getElementById('letra2').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra2').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 4) 
+			{
+				document.getElementById('letra3').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra3').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 5) 
+			{
+				document.getElementById('letra4').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra4').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 6) 
+			{
+				document.getElementById('letra5').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra5').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 7) 
+			{
+				document.getElementById('letra6').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra6').innerHTML = '&nbsp;';
+				acerto++;
+			}
+			if (tamanho >= 8) 
+			{
+				document.getElementById('letra7').innerHTML = '_';
+			}
+			else
+			{
+				document.getElementById('letra7').innerHTML = '&nbsp;';
+				acerto++;
+			}
+
+			imagem()
+		}
+		function imagem()
+        {
+        	if (erro==0) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte1.jpg">';
+        	}
+        	if (erro==1) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte2.jpg">';
+        	}
+        	if (erro==2) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte3.jpg">';
+        	}
+        	if (erro==3) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte4.jpg">';
+        	}
+        	if (erro==4) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte5.jpg">';
+        	}
+        	if (erro==5) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte6.jpg">';
+        	}
+        	if (erro==6) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte7.jpg">';
+        	}
+        	if (erro==7) 
+        	{
+        	document.getElementById('forca').innerHTML = '<img src="Parte8.jpg">';
+            alert("A não, você perdeu, clique no jogar novamente para jogar de novo...");
+        	perdeu++;
+        	}
+        	erro++;
+        }
+        function escolha()
+        {
+        	letra = document.getElementById('letra').value;
+        	cada = palavra.split('');
+			var closer0 = 0, closer1 = 0, closer2 = 0, closer3 = 0, closer4 = 0, closer5 = 0, closer6 = 0, closer7 = 0;;
+            var aux;
+            aux = 0;
+            if(erro>=8)
+            {
+                alert("A não, você perdeu, clique no jogar novamente para jogar de novo...");
+            }
+            else
+            {
+        	   if(letra == cada[0] && closer0 ==0)
+        	   {
+        	   	   document.getElementById('letra0').innerHTML = letra;
+        	   	   acerto++;
+        	   	   closer0++;
+                    aux++;
+        	   }
+        	   if(letra == cada[1] && closer1 ==0)
+        	   {
+        	   	   document.getElementById('letra1').innerHTML = letra;
+        	       	acerto++;
+        	   	   closer1++;
+                    aux++;
+        	   }
+        	   if(letra == cada[2] && closer2 ==0)
+        	   {
+        	       	document.getElementById('letra2').innerHTML = letra;
+        	   	   acerto++;
+        	   	   closer2++;
+                    aux++;
+        	   }
+        	   if(letra == cada[3] && closer3 ==0)
+        	   {
+        	       	document.getElementById('letra3').innerHTML = letra;
+        	       	acerto++;
+        		  closer3++;
+                 aux++;
+        	   }
+        	   if(letra == cada[4] && closer4 ==0)
+        	   {
+        	       	document.getElementById('letra4').innerHTML = letra;
+        	       	acerto++;
+        	       	closer4++;
+                    aux++;
+        	   }
+        	   if(letra == cada[5] && closer5 ==0)
+        	   {
+        	       	document.getElementById('letra5').innerHTML = letra;
+        	       	acerto++;
+        	       	closer5++;
+                    aux++;
+        	   }
+        	   if(letra == cada[6] && closer6 ==0)
+        	   {
+        	       	document.getElementById('letra6').innerHTML = letra;
+        	       	acerto++;
+        	       	closer6++;
+                    aux++;
+        	   }
+        	   if(letra == cada[7] && closer7 ==0)
+        	   {
+        		  document.getElementById('letra7').innerHTML = letra;
+        		  acerto++;
+        		  closer7++;
+                  aux++;
+        	   }
+        	   if(acerto == 8) 
+        	   {
+        		alert("Parabéns, você venceu, se quiser jogar mais clique em jogar novamente!")
+        	   }
+                if(aux == 0)
+                {
+                imagem()  
+                aux++;              
+                }
+                if(aux == 0)
+                {
+                    imagem()     
+                    aux++;           
+                }
+                if(aux == 0)
+                {
+                    imagem()  
+                    aux++;              
+                }
+                if(aux == 0)
+                {
+                    imagem()  
+                    aux++;              
+                }
+                if(aux == 0)
+                {
+                    imagem() 
+                    aux++;               
+                }
+                if(aux == 0)
+                {
+                    imagem()  
+                    aux++;              
+                }
+                if(aux == 0)
+                {
+                    imagem()     
+                    aux++;           
+                }
+                if(aux == 0)
+                {   
+                    imagem()   
+                    aux++;             
+                }
+            }
+
+        }
+        function Atualizar() 
+        {
+			window.location.reload();
+		}
+	</script>
+</head>
+<body bgcolor="black" onload="inicio()">
+	<div align="center">
+		<font color="Blue" size="10">
+			<b>Bem vindo ao jogo da forca, geramos uma palavra aleatória para você,<br> tente adivinha-la, boa sorte!!!</b>
+		</font>
+		<br><br><br>
+		<font color="white" size="5"><b>Letra:&nbsp;&nbsp;</b></font><input type="text" id="letra" size="1">
+		<br><br>
+		<input type='button' onclick='escolha()' value='Testar a letra' style="cursor: pointer;"><br/>
+    </div><br><br>
+    <div align="center" style="font-size: 80px;color:white;">
+    	<font id="letra0"></font>
+    	<font id="letra1"></font>
+    	<font id="letra2"></font>
+    	<font id="letra3"></font>
+    	<font id="letra4"></font>
+    	<font id="letra5"></font>
+    	<font id="letra6"></font>
+    	<font id="letra7"></font>
+    </div>
+    <br>
+    <div id="forca" align="center"></div><br>
+    <div align="center">
+    	<input type='button' onclick='Atualizar()' value='Clique aqui ara jogar novamente' style="cursor: pointer;">
+	</div>
+</body>
+</html>

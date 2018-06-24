@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jogo da Velha</title>
+	<style type="text/css">
+		.tabelas
+		{
+			cursor: pointer;
+			width: 200px;
+			height: 200px;
+			background: lightblue;
+			font-size: 160px;
+		}
+		.tab
+		{
+			width: 100px;
+			height: 60px;
+			background: lightblue;
+			font-size: 20px;
+			font-weight: bold;
+			padding-left:20px;
+		}
+	</style>
+	<script type="text/javascript">
+		var npc = 0;
+		var vencida = 0;
+		var perdida = 0;
+		var quadrado;
+		var quebra;
+		var cont = 0;
+		var derrota = 0;
+		var vitoria = 0;
+		var x = document.getElementById('tela11').innerHTML;
+		function Atualizar() 
+        {
+			document.getElementById('tela11').innerHTML = '&nbsp;';
+			document.getElementById('tela12').innerHTML = '&nbsp;';
+			document.getElementById('tela13').innerHTML = '&nbsp;';
+			document.getElementById('tela21').innerHTML = '&nbsp;';
+			document.getElementById('tela22').innerHTML = '&nbsp;';
+			document.getElementById('tela23').innerHTML = '&nbsp;';
+			document.getElementById('tela31').innerHTML = '&nbsp;';
+			document.getElementById('tela32').innerHTML = '&nbsp;';
+			document.getElementById('tela33').innerHTML = '&nbsp;';
+			derrota = 0;
+			vitoria = 0;
+			eval(pontos());
+		}
+		function jogar(opcao)
+        {
+        	if (derrota==0 && vitoria==0) 
+        	{
+        		if (document.getElementById(opcao).innerHTML == "&nbsp;X"||document.getElementById(opcao).innerHTML == "&nbsp;O") 
+        		{
+        			alert("Não pode marcar em um local já ocupado!!!")
+        		}
+        		else
+        		{
+        			document.getElementById(opcao).innerHTML = '&nbsp;X';
+        			quebra = 0;
+        		
+        			while(quebra == 0)
+        			{
+        				if (cont >=9)
+        				{
+        					alert("Deu velha, clique em reiniciar para jogar novamente...");
+        					break;
+        				}
+        				if (document.getElementById('tela11').innerHTML == "&nbsp;X" && document.getElementById('tela12').innerHTML == "&nbsp;X" && document.getElementById('tela13').innerHTML == "&nbsp;X" || document.getElementById('tela21').innerHTML == "&nbsp;X" && document.getElementById('tela22').innerHTML == "&nbsp;X" && document.getElementById('tela23').innerHTML == "&nbsp;X" || document.getElementById('tela31').innerHTML == "&nbsp;X" && document.getElementById('tela32').innerHTML == "&nbsp;X" && document.getElementById('tela33').innerHTML == "&nbsp;X" || document.getElementById('tela11').innerHTML == "&nbsp;X" && document.getElementById('tela21').innerHTML == "&nbsp;X" && document.getElementById('tela31').innerHTML == "&nbsp;X" || document.getElementById('tela12').innerHTML == "&nbsp;X" && document.getElementById('tela22').innerHTML == "&nbsp;X" && document.getElementById('tela32').innerHTML == "&nbsp;X" || document.getElementById('tela11').innerHTML == "&nbsp;X" && document.getElementById('tela22').innerHTML == "&nbsp;X" && document.getElementById('tela33').innerHTML == "&nbsp;X" || document.getElementById('tela13').innerHTML == "&nbsp;X" && document.getElementById('tela22').innerHTML == "&nbsp;X" && document.getElementById('tela31').innerHTML == "&nbsp;X") 
+        				{
+        					alert("Parabéns, você venceu!!!");
+        					vencida++;
+        					vitoria++;
+        					quebra++;
+        				}
+        				else
+        				{
+        					eval(NPC());
+        					quebra++;
+        				}
+        			}
+        		}
+        		
+            }
+        	else
+        		{
+        			alert("A partida já foi decidida, tente novamente clicando no botão reiniciar...")
+        		}
+        }
+        function NPC()
+        {
+        	while(npc == 0)
+        	{
+        		quadrado = Math.floor(Math.random() * 10) + 1;
+        		if (quadrado == 1) 
+        		{
+        			if (document.getElementById('tela11').innerHTML == "&nbsp;X"||document.getElementById('tela11').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela11').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 2) 
+        		{
+        			if (document.getElementById('tela12').innerHTML == "&nbsp;X"||document.getElementById('tela12').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela12').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 3) 
+        		{
+        			if (document.getElementById('tela13').innerHTML == "&nbsp;X"||document.getElementById('tela13').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela13').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 4) 
+        		{
+        			if (document.getElementById('tela21').innerHTML == "&nbsp;X"||document.getElementById('tela21').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela21').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 5) 
+        		{
+        			if (document.getElementById('tela22').innerHTML == "&nbsp;X"||document.getElementById('tela22').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela22').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 6) 
+        		{
+        			if (document.getElementById('tela23').innerHTML == "&nbsp;X"||document.getElementById('tela23').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela23').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 7) 
+        		{
+        			if (document.getElementById('tela31').innerHTML == "&nbsp;X"||document.getElementById('tela31').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela31').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 8) 
+        		{
+        			if (document.getElementById('tela32').innerHTML == "&nbsp;X"||document.getElementById('tela32').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela32').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 9) 
+        		{
+        			if (document.getElementById('tela33').innerHTML == "&nbsp;X"||document.getElementById('tela33').innerHTML == "&nbsp;O")
+        			{
+        				npc = 0;
+        			}
+        			else
+        			{
+        				document.getElementById('tela33').innerHTML = '&nbsp;O';
+        				npc++;
+        			}
+        		}
+        		if (quadrado == 10) 
+        		{
+        			npc = 0;		
+        		}
+        		if (document.getElementById('tela11').innerHTML == "&nbsp;O" && document.getElementById('tela12').innerHTML == "&nbsp;O" && document.getElementById('tela13').innerHTML == "&nbsp;O" || document.getElementById('tela21').innerHTML == "&nbsp;O" && document.getElementById('tela22').innerHTML == "&nbsp;O" && document.getElementById('tela23').innerHTML == "&nbsp;O" || document.getElementById('tela31').innerHTML == "&nbsp;O" && document.getElementById('tela32').innerHTML == "&nbsp;O" && document.getElementById('tela33').innerHTML == "&nbsp;O" || document.getElementById('tela11').innerHTML == "&nbsp;O" && document.getElementById('tela21').innerHTML == "&nbsp;O" && document.getElementById('tela31').innerHTML == "&nbsp;O" || document.getElementById('tela12').innerHTML == "&nbsp;O" && document.getElementById('tela22').innerHTML == "&nbsp;O" && document.getElementById('tela32').innerHTML == "&nbsp;O" || document.getElementById('tela11').innerHTML == "&nbsp;O" && document.getElementById('tela22').innerHTML == "&nbsp;O" && document.getElementById('tela33').innerHTML == "&nbsp;O" || document.getElementById('tela13').innerHTML == "&nbsp;O" && document.getElementById('tela22').innerHTML == "&nbsp;O" && document.getElementById('tela31').innerHTML == "&nbsp;O") 
+        		{
+        			alert("Você perdeu, tente novamente clicando no botão reiniciar...")
+        			perdida++;
+        			derrota++;
+        		}
+        	}
+        	npc = 0;
+        }
+        function pontos() 
+        {
+        	document.getElementById('pontobom').innerHTML = vencida;
+        	document.getElementById('pontoruim').innerHTML = perdida;
+        }
+	</script>
+</head>
+<body bgcolor="black">
+	<div align="center"><font color="Blue" size="10">
+		<b>Bem vindo ao jogo da velha, aqui você jogará contra o computador, boa sorte!!</b>
+	</font>
+    </div><br><br><br><br>
+	<table align="center" border="3"  bgcolor="white" style="border-style: solid;border-color: blue;border-width: 8px;">
+		<tr>
+			<td id="tela11" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela12" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela13" class="tabelas" onclick="jogar(this.id)"></td>
+		</tr>
+		<tr>
+			<td id="tela21" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela22" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela23" class="tabelas" onclick="jogar(this.id)"></td>
+		</tr>
+		<tr>
+			<td id="tela31" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela32" class="tabelas" onclick="jogar(this.id)"></td>
+			<td id="tela33" class="tabelas" onclick="jogar(this.id)"></td>
+		</tr>
+	</table>
+	<div align="center">
+    	<input type='button' onclick='Atualizar()' value='Reiniciar' style="cursor: pointer;">
+	</div>
+	<table align="center">
+		<tr>
+			<td class="tab">
+				Vitórias
+			</td>
+			<td class="tab">
+				Derrotas
+			</td>
+		</tr>
+		<tr>
+			<td id="pontobom" class="tab"></td>
+			<td id="pontoruim" class="tab"></td>
+		</tr>
+		
+	</table>
+
+</body>
+</html>
